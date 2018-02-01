@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - 7.6
+  - 8.4
+  - 8.9
+branches:
+  only:
+    - master
+before_install:
+ - export TZ=Asia/Seoul
+script:
+ - npm run install
+ - npm run build
+ - npm run lint
+ - npm run test-cov
+after_script:
+ - test -e ./coverage/lcov.info && npm install coveralls@2 && cat ./coverage/lcov.info | coveralls

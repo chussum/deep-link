@@ -1,0 +1,37 @@
+{
+  "name": "deep-link",
+  "description": "Redirecting native iOS/Android App from your Website using app scheme.",
+  "main": "./dist/deep-link.min.js",
+  "authors": [
+    "Hyungjoo Kwon <iam@hyungdew.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/flosdor/deep-link",
+  "keywords": [
+    "deeplink",
+    "deep link",
+    "applink",
+    "app link",
+    "redirect",
+    "딥링크",
+    "딥 링크"
+  ],
+  "ignore": [
+    "coverage",
+    "examples",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".bowerrc",
+    ".babelrc",
+    ".eslintrc",
+    ".eslintignore",
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".travis.yml",
+    ".webpack.config.js",
+    ".yarn.lock"
+  ]
+}

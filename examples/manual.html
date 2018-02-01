@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>DeepLink Example</title>
+    <script src="../dist/deep-link.min.js"></script>
+</head>
+<body>
+Manual TEST
+
+<script>
+  var deepLink = new DeepLink({
+    appStore: 'https://itunes.apple.com/kr/app/id123456789',
+    playStore: 'https://play.google.com/store/apps/details?id=com.example.myApp',
+  });
+
+  // Manual
+  deepLink.openApp({
+    appScheme: 'myApp://example/51', // Required
+    webUrl: 'http://www.naver.com', // Optional
+  });
+</script>
+</body>
+</html>

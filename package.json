@@ -1,0 +1,60 @@
+{
+  "name": "deep-link.js",
+  "version": "1.0.0",
+  "description": "Redirecting native iOS/Android App from your Website using app scheme.",
+  "main": "./dist/deep-link.min.js",
+  "scripts": {
+    "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack",
+    "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --progress --colors --watch",
+    "lint": "./node_modules/.bin/eslint --ext js ./src",
+    "test": "./node_modules/.bin/mocha --require babel-core/register --colors ./tests/*.spec.js",
+    "test-cov": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive ./tests/*.spec.js --report lcovonly"
+  },
+  "author": {
+    "name": "Hyungjoo Kwon",
+    "email": "iam@hyungdew.com",
+    "url": "http://blog.hyungdew.com/"
+  },
+  "contributors": [
+    "Hyungjoo Kwon <iam@hyungdew.com>"
+  ],
+  "license": "MIT",
+  "repository": "flosdor/deep-link",
+  "bugs": {
+    "url": "http://github.com/flosdor/deep-link/issues",
+    "email": "iam@hyungdew.com"
+  },
+  "keywords": [
+    "deeplink",
+    "deep link",
+    "applink",
+    "app link",
+    "redirect",
+    "딥링크",
+    "딥 링크"
+  ],
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.2.1",
+    "babel-loader": "7.1.2",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "chai": "4.1.2",
+    "eslint": "4.16.0",
+    "eslint-config-standard": "11.0.0-beta.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "istanbul": "0.4.5",
+    "jsdom": "11.6.2",
+    "jsdom-global": "3.0.2",
+    "mocha": "5.0.0",
+    "webpack": "3.10.0"
+  },
+  "dependencies": {
+    "babel-istanbul": "0.12.2"
+  }
+}
