@@ -17,9 +17,9 @@
 ```
 
 #### Using NPM
-> npm install --save @flosdor/deep-link
+> npm install --save deep-link-js
 ```
-import DeepLink from 'deep-link.js';
+import DeepLink from 'deep-link-js';
 ```
 
 ### 2. Initialize deep-link.js related by your app infomation.
