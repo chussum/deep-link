@@ -1,5 +1,5 @@
 {
-  "name": "deep-link.js",
+  "name": "flosdor@deep-link",
   "version": "1.0.0",
   "description": "Redirecting native iOS/Android App from your Website using app scheme.",
   "main": "./dist/deep-link.min.js",
