@@ -17,7 +17,7 @@
 ```
 
 #### Using NPM
-> npm install --save flosdor@deep-link
+> npm install --save @flosdor/deep-link
 ```
 import DeepLink from 'deep-link.js';
 ```
