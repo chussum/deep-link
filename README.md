@@ -19,7 +19,7 @@
 #### Using NPM
 > npm install --save @iamdew/deep-link
 ```
-import DeepLink from 'deep-link';
+import DeepLink from '@iamdew/deep-link';
 ```
 
 ### 2. Initialize deep-link.js related by your app infomation.
