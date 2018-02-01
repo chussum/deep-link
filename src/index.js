@@ -47,14 +47,17 @@ export default class DeepLink {
           }
         }
         interval = setInterval(checkAppInterval, 200)
-        timer = setTimeout(() => {
-          const appStoreLink = isIPhone ? this.options.appStore : this.options.playStore
-          appStoreLink && (document.location.href = appStoreLink)
-        }, 1000)
+        timer = setTimeout(() => this.openStore, 1000)
         options.appScheme && (document.location.href = options.appScheme)
       } else {
         options.webUrl && (document.location.href = options.webUrl)
       }
+    }
+
+    // open the store.
+    this.openStore = () => {
+      const appStoreLink = isIPhone ? this.options.appStore : this.options.playStore
+      appStoreLink && (document.location.href = appStoreLink)
     }
   }
 }
