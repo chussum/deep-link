@@ -10,10 +10,15 @@
 ## Usage
 ### 1. Include deep-link.js on your site.
 
+#### Using CDN
+```
+<script src="https://cdn.jsdelivr.net/npm/@iamdew/deep-link@1.0.1/dist/deep-link.min.js"></script>
+```
+
 #### Using Bower
 > bower install --save deep-link
 ```
-<script src="./bower_components/deep-link/dist/deep-link.min.js" type="text/javascript"></script>
+<script src="./bower_components/deep-link/dist/deep-link.min.js"></script>
 ```
 
 #### Using NPM
@@ -39,7 +44,7 @@ deepLink.register(document.getElementById('test'), {
 });
 ```
 
-#### 2-2. Manual Open Application
+#### 2-2. Manual Open the Application
 ```javascript
 deepLink.openApp({
   appScheme: 'myApp://example/51', // Required
@@ -47,7 +52,7 @@ deepLink.openApp({
 });
 ```
 
-#### 2-3. Just Open Store
+#### 2-3. Just Open the Store
 ```javascript
 deepLink.openStore();
 ```
