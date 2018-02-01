@@ -16,12 +16,16 @@ export default class DeepLink {
 
     // binding function.
     this.register = (el, options) => {
-      if (typeof options.appScheme === 'undefined') {
+      if (!options.openOnlyStore && typeof options.appScheme === 'undefined') {
         throw Error('appScheme is a required param value.')
       }
       addEvent(el, 'click', (e) => {
         e && e.preventDefault()
-        this.openApp(options)
+        if (options.openOnlyStore === true) {
+          this.openStore()
+        } else {
+          this.openApp(options)
+        }
       })
     }
 
@@ -56,6 +60,8 @@ export default class DeepLink {
 
     // open the store.
     this.openStore = () => {
+      const ua = navigator.userAgent.toLowerCase()
+      const isIPhone = /iphone|ipad|ipod/.test(ua)
       const appStoreLink = isIPhone ? this.options.appStore : this.options.playStore
       appStoreLink && (document.location.href = appStoreLink)
     }

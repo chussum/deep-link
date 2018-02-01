@@ -40,6 +40,12 @@ describe('Given an instance of DeepLink library', () => {
       });
     });
   });
+  describe('when I need the openStore function', () => {
+    it('should return the function', () => {
+      expect(deepLink.openStore).to.be.a('function');
+      deepLink.openStore();
+    });
+  });
   after(() => {
     // May be good practice in case something we end up using something like setInterval that tries to keep jsdom alive.
     window.close();

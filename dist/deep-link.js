@@ -108,12 +108,16 @@ function DeepLink(options) {
 
   // binding function.
   this.register = function (el, options) {
-    if (typeof options.appScheme === 'undefined') {
+    if (!options.openOnlyStore && typeof options.appScheme === 'undefined') {
       throw Error('appScheme is a required param value.');
     }
     addEvent(el, 'click', function (e) {
       e && e.preventDefault();
-      _this.openApp(options);
+      if (options.openOnlyStore === true) {
+        _this.openStore();
+      } else {
+        _this.openApp(options);
+      }
     });
   };
 
@@ -140,13 +144,20 @@ function DeepLink(options) {
       };
       interval = setInterval(checkAppInterval, 200);
       timer = setTimeout(function () {
-        var appStoreLink = isIPhone ? _this.options.appStore : _this.options.playStore;
-        appStoreLink && (document.location.href = appStoreLink);
+        return _this.openStore;
       }, 1000);
       options.appScheme && (document.location.href = options.appScheme);
     } else {
       options.webUrl && (document.location.href = options.webUrl);
     }
+  };
+
+  // open the store.
+  this.openStore = function () {
+    var ua = navigator.userAgent.toLowerCase();
+    var isIPhone = /iphone|ipad|ipod/.test(ua);
+    var appStoreLink = isIPhone ? _this.options.appStore : _this.options.playStore;
+    appStoreLink && (document.location.href = appStoreLink);
   };
 };
 

@@ -33,17 +33,23 @@ var deepLink = new DeepLink({
 #### 2-1. Register click event
 ```javascript
 deepLink.register(document.getElementById('test'), {
-  appScheme: 'myApp://example/51', // Required
+  appScheme: 'myApp://example/51', // Required (Optional that if openOnlyStore is true)
   webUrl: 'http://www.naver.com', // Optional
+  openOnlyStore: false, // Optional
 });
 ```
 
-#### 2-2. Manual
+#### 2-2. Manual Open Application
 ```javascript
 deepLink.openApp({
   appScheme: 'myApp://example/51', // Required
   webUrl: 'http://www.naver.com', // Optional
 });
+```
+
+#### 2-3. Just Open Store
+```javascript
+deepLink.openStore();
 ```
 
 ## Issues
