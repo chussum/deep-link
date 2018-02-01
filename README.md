@@ -11,7 +11,7 @@
 ### 1. Include deep-link.js on your site.
 
 #### Using Bower
-> bower install --save deep-link.js
+> bower install --save deep-link
 ```
 <script src="./bower_components/deep-link/dist/deep-link.min.js" type="text/javascript"></script>
 ```
