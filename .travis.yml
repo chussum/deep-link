@@ -9,7 +9,6 @@ branches:
 before_install:
  - export TZ=Asia/Seoul
 script:
- - npm run install
  - npm run build
  - npm run lint
  - npm run test-cov
