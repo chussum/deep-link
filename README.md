@@ -64,11 +64,11 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
 [MIT LICENSE](LICENSE)
 
-[npm-image]: https://img.shields.io/npm/v/deep-link.js.svg
-[npm-url]: https://npmjs.org/package/deep-link.js
+[npm-image]: https://img.shields.io/npm/v/@iamdew/deep-link.svg
+[npm-url]: https://npmjs.org/package/@iamdew/deep-link
 [travis-image]: https://img.shields.io/travis/flosdor/deep-link/master.svg
 [travis-url]: https://travis-ci.org/flosdor/deep-link
 [coveralls-image]: https://coveralls.io/repos/github/flosdor/deep-link/badge.svg
 [coveralls-url]: https://coveralls.io/github/flosdor/deep-link
-[downloads-image]: https://img.shields.io/npm/dm/deep-link.js.svg
-[downloads-url]: https://npmjs.org/package/deep-link.js
+[downloads-image]: https://img.shields.io/npm/dm/@iamdew/deep-link.svg
+[downloads-url]: https://npmjs.org/package/@iamdew/deep-link
