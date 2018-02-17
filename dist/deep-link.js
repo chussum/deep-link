@@ -84,6 +84,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 // Event Register Function
@@ -97,20 +99,49 @@ var addEvent = function addEvent(element, eventName, fn) {
   }
 };
 
+// Find Frame Function
+var loadFrame = function loadFrame(id, appScheme) {
+  var iFrame = document.getElementById(id);
+  if (iFrame) {
+    document.body.removeChild(iFrame);
+  }
+  if (appScheme) {
+    iFrame = document.createElement('iframe');
+    iFrame.id = 'for-android-deeplink';
+    iFrame.style.width = 0;
+    iFrame.style.height = 0;
+    iFrame.style.visibility = 'hidden';
+    iFrame.onLoad = function () {
+      iFrame.src = appScheme;
+    };
+    document.body.appendChild(iFrame);
+  }
+};
+
+// Redirect Function
+var redirectTo = function redirectTo(url) {
+  url && (document.location.href = url);
+};
+
+// Validation
+var validate = function validate(options) {
+  if (typeof options.appScheme === 'undefined') {
+    throw Error('appScheme is a required param value.');
+  }
+};
+
 var DeepLink =
+
 // constructor
-function DeepLink(options) {
+function DeepLink(configs) {
   var _this = this;
 
   _classCallCheck(this, DeepLink);
 
-  this.options = options;
+  this.configs = {};
 
-  // binding function.
   this.register = function (el, options) {
-    if (!options.openOnlyStore && typeof options.appScheme === 'undefined') {
-      throw Error('appScheme is a required param value.');
-    }
+    validate(options);
     addEvent(el, 'click', function (e) {
       e && e.preventDefault();
       if (options.openOnlyStore === true) {
@@ -121,16 +152,27 @@ function DeepLink(options) {
     });
   };
 
-  // open the app.
-  this.openApp = function (options) {
-    if (typeof options.appScheme === 'undefined') {
-      throw Error('appScheme is a required param value.');
-    }
+  this.openApp = function (params) {
+    validate(params);
+
+    var options = _extends({
+      openStoreWhenNoInstalledTheApp: true,
+      alsoUseWebUrlOnMobile: true
+    }, params);
 
     var ua = navigator.userAgent.toLowerCase();
     var isIPhone = /iphone|ipad|ipod/.test(ua);
-    var isAndroid = ~ua.indexOf('android');
-    if (isIPhone || isAndroid) {
+    var isAndroid = !!~ua.indexOf('android');
+    var isMobile = isIPhone || isAndroid;
+
+    // on Desktop
+    if (isMobile === false) {
+      redirectTo(options.webUrl);
+      return;
+    }
+
+    // on Mobile
+    if (options.openStoreWhenNoInstalledTheApp === true) {
       var interval = void 0;
       var timer = void 0;
       var clearTimers = function clearTimers() {
@@ -144,22 +186,47 @@ function DeepLink(options) {
       };
       interval = setInterval(checkAppInterval, 200);
       timer = setTimeout(function () {
-        return _this.openStore;
+        return _this.openStore();
       }, 1000);
-      options.appScheme && (document.location.href = options.appScheme);
+    }
+
+    if (isAndroid === true) {
+      loadFrame('for-android-deeplink', options.appScheme);
     } else {
-      options.webUrl && (document.location.href = options.webUrl);
+      redirectTo(options.appScheme);
+    }
+
+    if (options.alsoUseWebUrlOnMobile === false) {
+      return;
+    }
+
+    if (options.openStoreWhenNoInstalledTheApp === true) {
+      setTimeout(function () {
+        return redirectTo(options.webUrl);
+      }, 2200);
+    } else {
+      redirectTo(options.webUrl);
     }
   };
 
-  // open the store.
   this.openStore = function () {
     var ua = navigator.userAgent.toLowerCase();
     var isIPhone = /iphone|ipad|ipod/.test(ua);
-    var appStoreLink = isIPhone ? _this.options.appStore : _this.options.playStore;
-    appStoreLink && (document.location.href = appStoreLink);
+    var appStoreLink = isIPhone ? _this.configs.appStore : _this.configs.playStore;
+    redirectTo(appStoreLink);
   };
-};
+
+  this.configs = configs;
+}
+
+// binding function.
+
+
+// open the app.
+
+
+// open the store.
+;
 
 exports.default = DeepLink;
 module.exports = exports['default'];

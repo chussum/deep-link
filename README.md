@@ -40,7 +40,9 @@ var deepLink = new DeepLink({
 deepLink.register(document.getElementById('test'), {
   appScheme: 'myApp://example/51', // Required (Optional that if openOnlyStore is true)
   webUrl: 'http://www.naver.com', // Optional
-  openOnlyStore: false, // Optional
+  openOnlyStore: true, // Optional (Default: false)
+  alsoUseWebUrlOnMobile: false, // Optional (Default: true)
+  openStoreWhenNoInstalledTheApp: false, // Optional (Default: true)
 });
 ```
 
@@ -49,6 +51,8 @@ deepLink.register(document.getElementById('test'), {
 deepLink.openApp({
   appScheme: 'myApp://example/51', // Required
   webUrl: 'http://www.naver.com', // Optional
+  alsoUseWebUrlOnMobile: false, // Optional (Default: true)
+  openStoreWhenNoInstalledTheApp: false, // Optional (Default: true)
 });
 ```
 
