@@ -12,7 +12,7 @@
 
 #### Using CDN
 ```
-<script src="https://cdn.jsdelivr.net/npm/@iamdew/deep-link@1.1.0/dist/deep-link.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@iamdew/deep-link@latest/dist/deep-link.min.js"></script>
 ```
 
 #### Using Bower

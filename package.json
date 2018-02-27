@@ -1,6 +1,6 @@
 {
   "name": "@iamdew/deep-link",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Redirecting native iOS/Android App from your Website using app scheme.",
   "main": "./dist/deep-link.min.js",
   "scripts": {
@@ -42,6 +42,7 @@
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-istanbul": "0.12.2",
     "chai": "4.1.2",
     "eslint": "4.16.0",
     "eslint-config-standard": "11.0.0-beta.0",
@@ -57,6 +58,5 @@
     "webpack": "3.10.0"
   },
   "dependencies": {
-    "babel-istanbul": "0.12.2"
   }
 }
