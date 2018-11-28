@@ -1,3 +1,5 @@
+## SORRY, THIS REPOSITORY IS DEPRECATED.
+
 # deep-link.js
 
 [![NPM Version][npm-image]][npm-url]
